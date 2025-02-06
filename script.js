@@ -179,7 +179,10 @@ ${this.getSuitSymbol(card.suit)}`;
 
       if (this.playerScore > 21) {
         this.endGame('You busted! You lose.');
-        this.displayDealerCards();
+        document.getElementById('dealer-cards').innerHTML = '';
+        for (let card of this.dealerHand) {
+          this.displayCard(card, document.getElementById('dealer-cards'));
+        }
       }
     }
   },
