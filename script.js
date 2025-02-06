@@ -161,6 +161,9 @@ ${this.getSuitSymbol(card.suit)}`;
       this.endGame('Blackjack! You win!');
     } else if (this.dealerScore === 21) {
       this.endGame('Dealer Blackjack! You lose.');
+      for (let card of this.dealerHand) {
+        this.displayCard(card, document.getElementById('dealer-cards'));
+      }
     }
 
     this.attachButtonListeners(); // Reattach event listeners
@@ -188,7 +191,9 @@ ${this.getSuitSymbol(card.suit)}`;
         document.getElementById('messages').innerText = 'You must hit until your score is 16 or higher.';
       } else {
         this.gameOver = true;
-        this.displayDealerCards();
+        for (let card of this.dealerHand) {
+          this.displayCard(card, document.getElementById('dealer-cards'));
+        }
         this.dealerPlay();
       }
     }
