@@ -4,4 +4,4 @@ This project is a [Goose](https://block.github.io/goose/) experiment where code,
 
 View the deployed project here: [Blackjack Game](https://jasoncheow.github.io/goose-blackjack-test/)
 
-Interestingly, my first JavaScript game was also Blackjack. This project feels like exploring development from scratch again, but in a new way, leveraging the power of AI assistance.
+Back in the early days of starting software development, the first JavaScript game I wrote was Blackjack. Revisiting it now feels like exploring development from scratch again, but in a new way, leveraging the power of AI assistance.
