@@ -179,10 +179,7 @@ ${this.getSuitSymbol(card.suit)}`;
 
       if (this.playerScore > 21) {
         this.endGame('You busted! You lose.');
-        document.getElementById('dealer-cards').innerHTML = '';
-        for (let card of this.dealerHand) {
-          this.displayCard(card, document.getElementById('dealer-cards'));
-        }
+        this.displayDealerHand(this.dealerHand, document.getElementById('dealer-cards'));
       }
     }
   },
@@ -194,9 +191,7 @@ ${this.getSuitSymbol(card.suit)}`;
         document.getElementById('messages').innerText = 'You must hit until your score is 16 or higher.';
       } else {
         this.gameOver = true;
-        for (let card of this.dealerHand) {
-          this.displayCard(card, document.getElementById('dealer-cards'));
-        }
+        this.displayDealerHand(this.dealerHand, document.getElementById('dealer-cards'));
         this.dealerPlay();
       }
     }
@@ -204,10 +199,7 @@ ${this.getSuitSymbol(card.suit)}`;
 
   // Dealer's play
   dealerPlay() {
-    document.getElementById('dealer-cards').innerHTML = ''; // Clear the hidden card
-    for (let card of this.dealerHand) {
-      this.displayCard(card, document.getElementById('dealer-cards'));
-    }
+    this.displayDealerHand(this.dealerHand, document.getElementById('dealer-cards'));
 
     while (this.dealerScore < 17) {
       const newCard = this.dealCard();
@@ -232,6 +224,13 @@ ${this.getSuitSymbol(card.suit)}`;
       this.endGame('You win!');
     } else {
       this.endGame('Push!');
+    }
+  },
+
+  displayDealerHand(dealerHand, target) {
+    target.innerHTML = ''; // Clear existing cards
+    for (let card of dealerHand) {
+      this.displayCard(card, target);
     }
   },
 
